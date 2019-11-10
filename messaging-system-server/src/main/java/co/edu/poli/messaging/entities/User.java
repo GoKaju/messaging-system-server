@@ -1,7 +1,10 @@
 package co.edu.poli.messaging.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -10,6 +13,8 @@ public class User {
 	private String username;
 	private String name;
 	private String password;
+	@OneToMany
+	private List<Contact> contacts;
 	
 	public User() {
 	}
