@@ -2,6 +2,8 @@ package co.edu.poli.messaging.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,10 +16,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import co.edu.poli.messaging.enums.StateEnum;
+
 @Transactional
 @Entity
 public class Contact {
 	
+	public StateEnum getState() {
+		return state;
+	}
+
+	public void setState(StateEnum state) {
+		this.state = state;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -28,12 +40,13 @@ public class Contact {
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@RestResource(exported = true)
 	private User contact;
+	@Enumerated(value = EnumType.STRING)
+	private StateEnum state = StateEnum.PENDING;
 	
 	public Contact() {
 		
 	}
 	
-
 	public Contact(User user, User contact) {
 		super();
 		this.user = user;
@@ -59,6 +72,6 @@ public class Contact {
 
 	public void setContact(User contact) {
 		this.contact = contact;
-	}	
+	}
 
 }
