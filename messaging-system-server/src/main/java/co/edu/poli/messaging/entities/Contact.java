@@ -12,13 +12,17 @@ import javax.persistence.OneToOne;
 import org.springframework.data.rest.core.annotation.RestResource;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Transactional
 @Entity
 public class Contact {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Integer id;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private User user;
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

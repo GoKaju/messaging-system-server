@@ -14,10 +14,8 @@ public class ServicesConfiguration implements RepositoryRestConfigurer {
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
 		config.exposeIdsFor(User.class);
-		
 		config.setDefaultMediaType(MediaType.APPLICATION_JSON_UTF8);
         config.useHalAsDefaultJsonMediaType(false);
-		
 	}
 	
 }
