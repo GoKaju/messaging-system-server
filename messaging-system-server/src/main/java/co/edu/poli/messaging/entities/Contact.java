@@ -1,28 +1,39 @@
 package co.edu.poli.messaging.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.transaction.annotation.Transactional;
+
+@Transactional
 @Entity
 public class Contact {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@OneToOne
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private User user;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@RestResource(exported = true)
+	private User contact;
 	
 	public Contact() {
 		
 	}
 	
-	public Contact(Integer id, User user) {
+
+	public Contact(User user, User contact) {
 		super();
-		this.id = id;
 		this.user = user;
+		this.contact = contact;
 	}
 
 	public Integer getId() {
@@ -38,9 +49,12 @@ public class Contact {
 		this.user = user;
 	}
 	
-	
-	
-	
-	
+	public User getContact() {
+		return contact;
+	}
+
+	public void setContact(User contact) {
+		this.contact = contact;
+	}	
 
 }
