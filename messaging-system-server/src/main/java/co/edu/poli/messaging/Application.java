@@ -23,11 +23,12 @@ public class Application {
 	public CommandLineRunner loadData(UserRepository repository) {
 		return (args) -> {
 			repository.save(new User("adminPoligran", "Administrador", "123"));
-			repository.save(new User("pollito", "Administrador", "123"));
-			repository.save(new User("ganzo", "Administrador", "123"));
-			repository.save(new User("conejo", "Administrador", "123"));
-			repository.save(new User("lechuga", "Administrador", "123"));
-			repository.save(new User("gorila", "Administrador", "123"));
+			repository.save(new User("pollito", "Pollo", "123"));
+			repository.save(new User("ganzo", "Ganzo", "123"));
+			repository.save(new User("conejo", "Conejo", "123"));
+			repository.save(new User("lechuga", "Lechuga", "123"));
+			repository.save(new User("gorila", "Gorila", "123"));
+			repository.save(new User("vaca", "Vaca", "123"));
 
 			User usuarioConsultado = repository.findById("adminPoligran").get();
 			User usuarioContacto = repository.findById("pollito").get();
