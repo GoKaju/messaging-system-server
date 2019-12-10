@@ -1,3 +1,5 @@
 - name: build
   service: messaging-system-server
   command: gradle clean build bootJar
+  command: echo "Finalizo build"
+  command: pwd
