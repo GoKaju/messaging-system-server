@@ -1,3 +1,3 @@
-- name: ci
+- name: build
   service: messaging-system-server
-  command: gradle build
+  command: gradle clean build bootJar
