@@ -5,7 +5,6 @@ COPY gradle gradle
 COPY \
   ./gradle \
   build.gradle \
-  gradle.properties \
   gradlew \
   settings.gradle \
 
