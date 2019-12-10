@@ -1,1 +1,2 @@
 - name: foo_step
+  command: java -version
