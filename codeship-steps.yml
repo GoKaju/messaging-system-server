@@ -1,2 +1,6 @@
 - name: foo_step
+  service: foo
   command: java -version
+
+- service: foo
+  command: echo one
