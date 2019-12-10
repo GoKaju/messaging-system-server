@@ -1,4 +1,0 @@
-messaging-system-server:
-  build:
-    image: messaging-system-server
-    dockerfile: Dockerfile

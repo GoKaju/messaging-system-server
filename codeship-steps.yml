@@ -1,0 +1,3 @@
+name: ci
+  service: messaging-system-server
+  command: gradle build
