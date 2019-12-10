@@ -1,3 +1,4 @@
 - name: foo_step
-  service: messaging-system-server
   command: java -version
+  service: messaging-system-server
+  
