@@ -15,7 +15,7 @@ RUN chmod +x gradlew
 RUN ./gradlew
 
 # Run gradle assemble to install dependencies before adding the whole repository
-RUN ./gradlew clean build bootJar
+RUN ./gradlew bootJar
 
 
 # ADD build/libs/messaging-system-server-0.1.0.jar /app/messaging-system-server-0.1.0.jar
