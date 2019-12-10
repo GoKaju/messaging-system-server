@@ -2,6 +2,7 @@ FROM gradle:5.6.4-jdk8 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle clean build bootJar
+RUN gradle -version
 
 FROM java:openjdk-8-jdk
 EXPOSE 8080
