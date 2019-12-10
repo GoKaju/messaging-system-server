@@ -11,6 +11,7 @@ COPY \
   ./
 
 # Install the gradle version used in the repository through gradlew
+RUN chmod +x gradlew
 RUN ./gradlew
 
 # Run gradle assemble to install dependencies before adding the whole repository
